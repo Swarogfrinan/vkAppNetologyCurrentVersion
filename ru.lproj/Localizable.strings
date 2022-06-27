@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Navigation
+
+  Created by Ilya Vasilev on 05.05.2022.
+  
+*/
+"Name" = "Илья Васильев" ;
+"Show status" = "Показать статус" ;
+"Photos" = "Фотки" ;
+"Memus" = "Мемесы" ;
+"Profile" = "Профиль" ;
+"Feed" = "Домой" ;
+"Waiting for something..." = "В ожидании чего-то..." ;
+"Email or phone" = "Email или телефон" ;
+"Password" = "Пароль" ;
+"Log In" = "Логин" ;
+"Views:" = "Просмотры:" ;
+"Likes:" = "Лайки:" ;
+"Photo Gallery" = "Галлерея" ;
+"First post" = "Первый пост" ;
+"Second post" = "Второй пост" ;
+"Post Title" = "Заголовок поста" ;
+"Show Alert" = "Показать уведомление" ;
+"Close info" = "Закрыть инфо" ;
+"Do you close info?" = "Вы хотите закрыть инфо?" ;
+"Cancel" = "Закрыть" ;
+
