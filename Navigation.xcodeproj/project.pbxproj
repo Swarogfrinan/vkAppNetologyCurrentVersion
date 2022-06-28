@@ -916,7 +916,7 @@
 				DEVELOPMENT_TEAM = 5K6Q3VCR94;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = vkApp;
+				INFOPLIST_KEY_CFBundleDisplayName = VkNetologyApp;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please accept photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -928,7 +928,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ilya.vkApp;
+				PRODUCT_BUNDLE_IDENTIFIER = Ilya.VkNetologyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -948,7 +948,7 @@
 				DEVELOPMENT_TEAM = 5K6Q3VCR94;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = vkApp;
+				INFOPLIST_KEY_CFBundleDisplayName = VkNetologyApp;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "please accept photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -960,7 +960,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ilya.vkApp;
+				PRODUCT_BUNDLE_IDENTIFIER = Ilya.VkNetologyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
