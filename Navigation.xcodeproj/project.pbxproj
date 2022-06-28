@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35307642B1D50F593008449C /* Pods_StorageService_StorageServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3CA7BD752718BE5145A3BA /* Pods_StorageService_StorageServiceTests.framework */; };
+		43210153286B0ED5004FE489 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43210152286B0ED5004FE489 /* CurrentUserService.swift */; };
+		43210155286B376E004FE489 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43210154286B376E004FE489 /* TestUserService.swift */; };
 		439D429828538E2500CCB7F2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E32E3B280AA8F0007D4481 /* PostTableViewCell.swift */; };
 		439D429A2853929B00CCB7F2 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 439D42992853929B00CCB7F2 /* iOSIntPackage */; };
 		439D429B285392AC00CCB7F2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E32E3B280AA8F0007D4481 /* PostTableViewCell.swift */; };
@@ -92,6 +94,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		43210152286B0ED5004FE489 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		43210154286B376E004FE489 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		43AB77DC284B737D002F39D4 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AB77E2284B73D8002F39D4 /* iOSIntPackage-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "iOSIntPackage-main"; path = "../../Downloads/iOSIntPackage-main"; sourceTree = "<group>"; };
 		43ADD3B12869E8D000337039 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				C7FA3336281F123700F708C2 /* PhotosModel.swift */,
 				43EEF9E22848DF88004FEC68 /* UserModel.swift */,
 				43ADD3B32869EAE100337039 /* LoginFactory.swift */,
+				43210152286B0ED5004FE489 /* CurrentUserService.swift */,
+				43210154286B376E004FE489 /* TestUserService.swift */,
 				43ADD3B12869E8D000337039 /* LoginInspector.swift */,
 			);
 			path = Model;
@@ -602,6 +608,7 @@
 			files = (
 				C759180327F39CB2004DB176 /* LogInViewController.swift in Sources */,
 				C7A62C1E27D24B39000CF42B /* PostViewController.swift in Sources */,
+				43210155286B376E004FE489 /* TestUserService.swift in Sources */,
 				43E7AB1F282409CF00FFFCE8 /* String + extension.swift in Sources */,
 				C7A62C1C27D24B1C000CF42B /* ProfileViewController.swift in Sources */,
 				43B6DEE328578BEB00DEE815 /* AppState.swift in Sources */,
@@ -622,6 +629,7 @@
 				43EEF9E1284791D8004FEC68 /* PhotosModel.swift in Sources */,
 				C7A62C2327D6139A000CF42B /* InfoViewController.swift in Sources */,
 				C7A62C0627D244A0000CF42B /* AppDelegate.swift in Sources */,
+				43210153286B0ED5004FE489 /* CurrentUserService.swift in Sources */,
 				C7E32E3E280ABAF4007D4481 /* UIView+Extension.swift in Sources */,
 				C7B9649727DF4958003AD7C1 /* ProfileHeaderView.swift in Sources */,
 				C7FA3335281EF73B00F708C2 /* PhotosCollectionViewCell.swift in Sources */,

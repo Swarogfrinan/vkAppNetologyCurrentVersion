@@ -9,36 +9,12 @@ import StorageService
 import SnapKit
 
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
-//    required init(key property: UserService, protocolName: String) {
-//        self.userService = UserService
-//
-//    }
-//    
-    func someMethod(_ protocolName: String) -> User {
-    segueName = protocolName
-        return property!
-    }
-    
-//    init(userService: UserService) {
-//        self.userService = userService
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    
-    var property: User?
-//    var userService: UserService
-    var segueName = ""
-//    var currentUser = UserService? = UserService()
-    weak var delegate: logInUserNameDelegate?
-   
     //MARK: - Properties
-//    let vc = ProfileViewController()
-    
+    weak var delegate: LogInUserCheckDelegate?
+    private let userService: UserService
+    private let inputName: String
     //MARK: - Private
     private let posts = PostModel.makeMockModel()
     //MARK: - Variables
@@ -56,28 +32,43 @@ class ProfileViewController: UIViewController {
         return table
 
     }()
-
-    //MARK: - Override functions
+//MARK: Lifecycle
+    init(userService: UserService, inputName: String) {
+        self.userService = userService
+        self.inputName = inputName
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
     super.viewDidLoad()
-    customizeView()
-    layout()
-    setupGesture()
+        
+        if let user = userService.getUser(with: inputName) {
+            profileHeader.setupUser()
+            print("Name: \(user.userName), avatar: \(user.userAvatarImage).jgp, status: \(user.userStatus)")
+        } else {
+            profileHeader.setupUser()
+            print("Error: \(inputName) isnt found")
+        }
+        
+        customizeTestView()
+        layout()
+        setupGesture()
     }
 
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+        
     navigationController?.navigationBar.isHidden = true
     }
 
     //MARK: - Methods
-    
-  private func initializeUser()  {
-    
-    }
-    
-    private func customizeView() {
-#if DEBUG
+    private func customizeTestView() {
+        #if DEBUG
              view.backgroundColor = .systemMint
          #else
              view.backgroundColor = .systemBackground
@@ -96,7 +87,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: - UITableViewDelegate
+//MARK: - Extension + UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
@@ -120,7 +111,7 @@ extension ProfileViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-//MARK: - UITableViewDataSource
+//MARK: - Extension + UITableViewDataSource
 extension ProfileViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -160,16 +151,18 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
 }
-//MARK: - Gestures and Animations
+//MARK: = Extension - Gestures and Animations
 extension ProfileViewController {
+    
     private var widthBackView: CGFloat {
         profileHeader.backView.bounds.width
     }
+    
     private var heightBackView: CGFloat {
         profileHeader.backView.bounds.height
     }
     
-//Установка жеста открытия аватарки на фулл-сайз.
+    ///Установка жеста открытия аватарки на фулл-сайз.
     private func setupGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         profileHeader.avatarImageView.addGestureRecognizer(tapGesture)
@@ -183,9 +176,10 @@ extension ProfileViewController {
         profileHeader.backView.addGestureRecognizer(swipeGesture)
         
     }
-    //open photo tap
+    //open photo on tap
     @objc private func tapAction() {
         isAvatarOpen = true
+        
         UIView.animate(withDuration: 0.31) {
             print("tapAction open avatar image")
             self.profileHeader.avatarImageView.layer.cornerRadius = 0
@@ -200,19 +194,25 @@ extension ProfileViewController {
             self.profileHeader.closeButton.isHidden = false
             self.profileHeader.backView.alpha = 0.70
             self.tableView.isScrollEnabled = false
+            
         } completion: { _ in
+            
+            
             UIView.animate(withDuration: 0.2) {
                 self.profileHeader.closeButton.alpha = 1
         }
         }
     }
-    //close photo app
-        @objc private func closeActions() {
-            isAvatarOpen = false
-            UIView.animate(withDuration: 0.3) {
+    
+        ///close photo app
+            @objc private func closeActions() {
+                isAvatarOpen = false
+                UIView.animate(withDuration: 0.3) {
                 print("closeActions open avatar image")
                 self.profileHeader.closeButton.alpha = 0
+                    
             } completion: { _ in
+                
                 UIView.animate(withDuration: 0.2) {
                     self.profileHeader.avatarImageView.layer.cornerRadius = 50
                     self.profileHeader.avatarImageView.layer.borderWidth = 3
@@ -227,13 +227,4 @@ extension ProfileViewController {
             }
         }
 //end
-}
-
-extension ProfileViewController: logInUserNameDelegate {
-    func segueUserName(text: String) {
-        profileHeader.fullNameLabel.text  = text
-        segueName = text
-        print(text)
-    }
-
 }

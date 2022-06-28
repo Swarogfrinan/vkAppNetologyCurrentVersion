@@ -7,38 +7,15 @@
 
 import UIKit
 
-protocol logInUserNameDelegate: AnyObject{
-    func segueUserName(text: String)
-}
 protocol LogInUserCheckDelegate: AnyObject{
     func didUserCheck(login: String, password: String) -> Bool
     
 }
+
 class LogInViewController: UIViewController {
     
-//func segueUserName(text: String) {
-//        logTextField.text! = text
-//        print(text)
-//    }
-    
-  
-//        if let login = Checker.shared.checkPassword(login: log, password: <#T##String#>)
-//        if let pass = Checker.shared.checkPassword(login: logTextField.text!, password: passwordTextField.text!) as? String {
-//            print(login, pass)
-//            if pass == checker?.checkPassword(login: "Ilya", password: "1234") ?? nil {
-//                return true
-//            } else {
-//                return false
-//            }
-//
-//        }
-    
-    
-    
-    
 //MARK: - Properties
-    weak var delegate: logInUserNameDelegate?
-    weak var logVCDelegate: LogInUserCheckDelegate?
+    weak var logVcDelegate: LogInUserCheckDelegate?
     private let notificationCenter = NotificationCenter.default
     
     private let scrollView: UIScrollView =  {
@@ -147,20 +124,35 @@ class LogInViewController: UIViewController {
     }
 ///button
     @objc func showProfileButtonPressed() {
-        print("логин пользователя не верный \(logTextField.text!), \(passwordTextField.text!)")
-//        delegate?.segueUserName(text: logTextField.text!)
-        guard let logVCDelegate = logVCDelegate,
-              let login = logTextField.text,
-              let password = passwordTextField.text
-        else { return }
-        
-        if logVCDelegate.didUserCheck(login: login, password: password) {
-            print("логин пользователя верный \(login), \(password)")
-        let profileViewController = ProfileViewController()
-            navigationController?.pushViewController(profileViewController, animated: true)
-        }
+        guard let input = logTextField.text else { return }
 
+                 #if DEBUG
+                    let profileViewController = ProfileViewController(userService: TestUserService(), inputName: input)
+                 #else
+                     let user = User(
+                         fullname: "Ilya Vasilev",
+                         avatar: "avatar",
+                         status: "*** *****"
+                     )
+                     let userService = CurrentUserService(user)
+                     let profileViewController = ProfileViewController(userService: userService, inputName: input)
+                 #endif
+
+                 navigationController?.pushViewController(profileViewController, animated: true)
     }
+
+//        print("логин пользователя не верный \(logTextField.text!), \(passwordTextField.text!)")
+//        guard let logVCDelegate = logVcDelegate,
+//              let login = logTextField.text,
+//              let password = passwordTextField.text
+//        else { return }
+//
+//        if logVCDelegate.didUserCheck(login: login, password: password) {
+//
+//        print("логин пользователя верный \(login), \(password)")
+//
+//            let profileViewController = ProfileViewController()
+//        navigationController?.pushViewController(profileViewController, animated: true)
     
 
 ///customize view

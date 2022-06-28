@@ -113,8 +113,10 @@ public let avatarImageView: UIImageView = {
     var trailingOpenImageView = NSLayoutConstraint()
     
     //MARK: - Lifecycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         SetupKitView()
         
     }
@@ -171,6 +173,14 @@ public let avatarImageView: UIImageView = {
        
     }
     //MARK: - Methods
+    func setupUser(name: String = "unknown",
+                   avatar: String = "unknown",
+                   status: String = "Waiting for something..."
+    ) {
+        fullNameLabel.text = name
+        avatarImageView.image = UIImage(named: avatar)
+        statusLabel.text = status
+    }
     //изменение текстового статуса Профиля.
     @objc func buttonPressed() {
         //Если текст статуса Профиля пустой - дефолт текст ожидания.
@@ -253,12 +263,6 @@ public let avatarImageView: UIImageView = {
 extension ProfileHeaderView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing(true)
-    }
-}
-extension ProfileHeaderView: logInUserNameDelegate {
-    func segueUserName(text: String) {
-    fullNameLabel.text = text
-    print("Имя пользователя переданное во HeaderView = \(fullNameLabel.text!)")
     }
 }
 
