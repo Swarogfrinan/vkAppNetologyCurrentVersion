@@ -140,21 +140,6 @@ class LogInViewController: UIViewController {
 
                  navigationController?.pushViewController(profileViewController, animated: true)
     }
-
-//        print("логин пользователя не верный \(logTextField.text!), \(passwordTextField.text!)")
-//        guard let logVCDelegate = logVcDelegate,
-//              let login = logTextField.text,
-//              let password = passwordTextField.text
-//        else { return }
-//
-//        if logVCDelegate.didUserCheck(login: login, password: password) {
-//
-//        print("логин пользователя верный \(login), \(password)")
-//
-//            let profileViewController = ProfileViewController()
-//        navigationController?.pushViewController(profileViewController, animated: true)
-    
-
 ///customize view
     private func customizeView() {
         view.backgroundColor = .white

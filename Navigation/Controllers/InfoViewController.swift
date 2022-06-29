@@ -18,7 +18,7 @@ class InfoViewController: UIViewController {
 
         return button
     }()
-
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,7 +56,7 @@ class InfoViewController: UIViewController {
     }
 }
 
-//MARK: SetConstraints
+//MARK: Extension + InfoViewController 
 
 extension InfoViewController {
     func setConstraints() {
