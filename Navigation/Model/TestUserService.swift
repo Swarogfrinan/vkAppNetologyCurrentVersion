@@ -6,6 +6,7 @@
 //
 
 import Foundation
+///DEBUG UserService
 final class TestUserService {
     private let user = User(userName: "test Name",
                     userStatus: "test Status",
